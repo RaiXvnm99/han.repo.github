@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ensiklopedia Fisika Universal terlengkap buatan Raihan. Menjelajahi fisika klasik, relativitas, hingga mekanika kuantum.">
+  <title>The Universe • Ensiklopedia Fisika Universal</title>
+  
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #0ea5e9;
+      --secondary: #38bdf8;
+      --bg-dark: #020617;
+    }
+    body { 
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+      line-height: 1.85; 
+      background-color: var(--bg-dark); 
+      -webkit-font-smoothing: antialiased;
+      scroll-padding-top: 80px;
+    }
+    
+    .hero-bg {
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 1)), url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .section-title { color: var(--secondary); text-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
+    
+    .formula-box {
+      background: linear-gradient(145deg, #0f172a, #111827);
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 24px;
+      margin: 20px 0;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .formula-box:hover {
+      transform: translateY(-5px);
+      border-color: var(--secondary);
+      box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
+    }
+    
+    .math-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: #0369a1; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+    
+    .glow-text {
+      text-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+    }
+
+    header, .hero-content-tag, .section-title {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      will-change: transform, opacity;
+    }
+  </style>
+</head>
+<body class="text-gray-300 antialiased selection:bg-sky-500/30 selection:text-sky-200">
+
+  <header class="fixed top-0 w-full bg-slate-950/95 backdrop-blur-sm z-50 border-b border-sky-900/40 transition-all shadow-lg shadow-black/30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <h1 class="text-2xl font-bold text-sky-400 tracking-widest uppercase glow-text">Universal<span class="text-white">Realm</span></h1>
+      <nav class="flex gap-6 text-sm overflow-x-auto whitespace-nowrap pb-2 md:pb-0 scrollbar-hide w-full md:w-auto font-medium">
+        <a href="#klasik" class="hover:text-sky-300 transition">Era Klasik</a>
+        <a href="#termo" class="hover:text-sky-300 transition">Termodinamika</a>
+        <a href="#relativitas" class="hover:text-sky-300 transition">Relativitas</a>
+        <a href="#kuantum" class="hover:text-sky-300 transition">Alam Kuantum</a>
+        <a href="#tokoh" class="hover:text-sky-300 transition">Hall of Fame</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-bg min-h-[100svh] flex items-center justify-center text-center px-6 pt-24 relative overflow-hidden">
+      <div class="max-w-5xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-sky-500/40 bg-sky-500/10 text-sky-300 text-sm font-bold mb-8 tracking-widest shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+          <i class="fa-solid fa-atom"></i> SEBUAH KARYA DIBUAT OLEH RAIHAN
+        </div>
+        <h1 class="hero-content-tag text-5xl md:text-7xl lg:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-blue-500 to-indigo-400 drop-shadow-xl">
+          The Fabric of Reality
+        </h1>
+        <p class="hero-content-tag text-xl md:text-3xl text-gray-200 mb-8 font-light tracking-wide">
+          Mengurai Misteri Alam Semesta dari Skala Planck hingga Tepi Kosmos
+        </p>
+        <p class="hero-content-tag text-md md:text-lg max-w-3xl mx-auto text-gray-400 leading-relaxed">
+          Ensiklopedia absolut yang merangkum miliaran tahun evolusi alam semesta ke dalam bahasa matematika dan fisika yang presisi. Dari apel yang jatuh ke bumi, kelengkungan dimensi ruang-waktu, hingga getaran simfoni kuantum.
+        </p>
+      </div>
+      <div class="absolute bottom-10 animate-bounce text-sky-500/50 text-2xl">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <section id="klasik" class="py-24 bg-slate-950">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="section-title text-4xl md:text-5xl font-bold mb-6 text-center transform translateZ(0)">1. Mekanika Klasik & Elektromagnetisme</h2>
+        <p class="text-gray-400 mb-10 text-md leading-relaxed text-center max-w-4xl mx-auto">
+          Zaman pencerahan sains, era di mana manusia menyadari bahwa pergerakan alam tidak didorong oleh mistisisme, melainkan oleh hukum matematika yang universal dan deterministik. Era ini menjelaskan bagaimana pergerakan benda kasat mata di bumi maupun pergerakan planet di langit bekerja, serta menyatukan dua kekuatan alam paling dominan: listrik dan magnet.
+        </p>
+        
+        <div class="space-y-12 mb-16 max-w-4xl mx-auto">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-3">Fondasi Newton (Tiga Hukum Gerak)</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Tiga pilar mekanika klasik yang merumuskan hubungan antara gaya, massa, dan gerak.
+              <ul class="list-disc list-inside text-gray-500 mt-3 text-xs space-y-1.5 ml-3">
+                <li><b class="text-slate-400">Hukum Kelembaman (Hukum I):</b> Benda akan tetap diam atau bergerak lurus beraturan jika tidak ada gaya luar yang mempengaruhinya.</li>
+                <li><b class="text-slate-400">Hukum Gerak (Hukum II, F = ma):</b> Percepatan suatu benda berbanding lurus dengan total gaya yang bekerja padanya dan berbanding terbalik dengan massanya.</li>
+                <li><b class="text-slate-400">Hukum Aksi-Reaksi (Hukum III):</b> Setiap aksi akan menimbulkan reaksi yang sama besar namun berlawanan arah.</li>
+              </ul>
+            </p>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-3">Persamaan Maxwell: Penyatuan Besar</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Empat persamaan diferensial partial legendaris Maxwell yang ditulis oleh James Clerk Maxwell pada pertengahan abad ke-19 adalah pencapaian terbesar fisika klasik. Persamaan ini menyatukan listrik dan magnet sebagai dua aspek berbeda dari kekuatan alam yang sama: <b>Elektromagnetisme</b>. Lebih jauh lagi, persamaan ini membuktikan secara matematis bahwa <b>cahaya sebenarnya adalah gelombang elektromagnetik</b>, merintis jalan bagi telekomunikasi modern.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-16">
+          <article class="formula-box">
+            <h4 class="text-sky-400 font-bold text-xl mb-2">Gaya Gravitasi Universal (Newton)</h4>
+            <p class="text-sm text-gray-500 mb-4">Massa menarik massa. Hukum ini berhasil menjelaskan pergerakan Apollo 11 hingga orbit planet.</p>
+            <div class="math-scroll" id="newton_grav"></div>
+          </article>
+
+          <article class="formula-box border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+            <h4 class="text-emerald-400 font-bold text-xl mb-2">Gaya Lorentz (Dasar Mesin Listrik)</h4>
+            <p class="text-sm text-gray-500 mb-4">Gaya yang dialami oleh partikel bermuatan yang bergerak dalam medan elektromagnetik. Merupakan kunci bagi motor listrik.</p>
+            <div class="math-scroll" id="lorentz"></div>
+          </article>
+        </div>
+
+        <article class="formula-box max-w-4xl mx-auto shadow-sky-500/20">
+          <h4 class="text-sky-300 font-bold text-2xl mb-4 text-center">Persamaan Maxwell (Bentuk Vektor/Makroskopis)</h4>
+          <p class="text-sm text-gray-500 mb-6 text-center leading-relaxed">
+            Menjelaskan bagaimana medan listrik dan medan magnet muncul dan berubah berdasarkan distribusi muatan listrik (ρ) dan arus listrik (J).
+          </p>
+          <div class="math-scroll flex flex-col gap-4" id="maxwell"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="termo" class="py-24 bg-slate-900 border-y border-slate-800 relative overflow-hidden border-t border-slate-800">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596200236162-81766a2e460a?auto=format&fit=crop&q=80')] opacity-10 bg-center"></div>
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <h2 class="section-title text-4xl md:text-5xl font-bold mb-6 text-center transform translateZ(0)">2. Termodinamika & Hukum Kedua</h2>
+        <p class="text-center text-gray-400 mb-12 max-w-4xl mx-auto text-md leading-relaxed">
+          Ilmu tentang energi, panas, kerja, dan transformasi dari bentuk satu ke bentuk yang lain. Termodinamika bukanlah fisika partikel individual, melainkan <b>fisika statistik</b> tentang bagaimana miliaran partikel berperilaku sebagai satu kesatuan. Hukum Kedua Termodinamika adalah hukum fundamental alam semesta yang menjelaskan panah waktu: mengapa kita tidak bisa menghancurkan energi, dan mengapa alam semesta perlahan menuju kematian yang membeku.
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">Hukum Kedua & Entropi</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Menyatakan bahwa dalam suatu sistem terisolasi, total Entropi (ΔS) akan selalu bertambah seiring waktu. <b>Entropi</b> adalah ukuran matematis dari <b>kekacauan, ketidakteraturan, atau probabilitas status</b>. Ada lebih banyak cara bagi molekul gelas yang pecah untuk menjadi acak daripada teratur. Inilah mengapa waktu bergerak maju, telur yang pecah tidak akan utuh kembali, dan mesin abadi adalah mustahil.
+              </p>
+            </div>
+            <article class="formula-box m-0">
+              <h4 class="text-sky-400 font-bold mb-2">Rumus Entropi Boltzmann</h4>
+              <p class="text-xs text-gray-500 mb-4">Menghubungkan probabilitas mikroskopis (W) ke entropi makroskopis. Diukir di nisan Boltzmann.</p>
+              <div class="math-scroll" id="boltzmann"></div>
+            </article>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-2xl font-bold text-indigo-300 mb-2">Suhu Lubang Hitam (Hawking)</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Stephen Hawking membuktikan bahwa lubang hitam tidak sepenuhnya hitam. Dengan menggunakan teori kuantum di dekat cakrawala peristiwa, ia membuktikan bahwa lubang hitam memancarkan partikel berenergi rendah, dikenal sebagai <b>Radiasi Hawking</b>. Teori ini secara matematis menghubungkan dua pilar fisika modern yang saling bertentangan: Mekanika Kuantum dan Gravitasi. Lubang hitam memiliki suhu dan akhirnya akan menguap.
+              </p>
+            </div>
+            <article class="formula-box m-0 border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
+              <h4 class="text-indigo-400 font-bold mb-2">Rumus Suhu Lubang Hitam Hawking</h4>
+              <div class="math-scroll" id="hawking"></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="relativitas" class="py-24 bg-black border-t border-slate-800">
+      <div class="max-w-6xl mx-auto px-6 overflow-hidden">
+        <h2 class="section-title text-4xl md:text-5xl font-bold mb-6 text-center transform translateZ(0)">3. Relativitas Albert Einstein</h2>
+        <p class="text-center text-gray-400 mb-12 max-w-4xl mx-auto text-md leading-relaxed transform translateZ(0)">
+          Puncak pencapaian akal budi manusia untuk mengukur waktu dan ruang. Albert Einstein menghancurkan pandangan absolut Newton tentang alam semesta. Melalui dua teori besarnya, waktu dan ruang tidak lagi merupakan kanvas statis, melainkan <b>jaring dinamis 4-dimensi</b> yang bisa melengkung, merenggang, dan melambat akibat adanya massa, energi, atau kecepatan yang ekstrem.
+        </p>
+        
+        <div class="grid lg:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+          <article class="formula-box shadow-sky-500/20 transform translateZ(0)">
+            <h4 class="text-sky-300 font-bold text-2xl mb-4 text-center">Relativitas Khusus (1905)</h4>
+            <p class="text-sm text-gray-500 mb-6 text-center leading-relaxed">
+              Membongkar konsep waktu dan ruang absolut. Hukum fisika adalah sama untuk semua pengamat, dan kecepatan cahaya (c) adalah mutlak di seluruh alam semesta. Memprediksi adanya <b>Dilatasi Waktu</b>, di mana waktu berjalan lebih lambat bagi mereka yang bergerak mendekati kecepatan cahaya, contoh nyata: satelit GPS di orbit yang waktu berjalan lebih lambat.
+            </p>
+            <div class="math-scroll" id="time_dilation"></div>
+          </article>
+          <article class="formula-box transform translateZ(0)">
+            <h4 class="text-sky-400 font-bold mb-2">Kesetaraan Massa-Energi (E=mc²)</h4>
+            <p class="text-xs text-gray-500 mb-4">Materi dan energi adalah dua sisi dari koin yang sama. Sedikit massa mengandung energi masif.</p>
+            <div class="math-scroll text-2xl text-white font-bold" id="emc2"></div>
+          </article>
+        </div>
+
+        <article class="formula-box max-w-4xl mx-auto shadow-rose-500/20 transform translateZ(0)">
+          <h4 class="text-rose-400 font-bold text-2xl mb-4 text-center">Persamaan Medan Einstein (Relativitas Umum, 1915)</h4>
+          <p class="text-sm text-gray-500 mb-6 text-center leading-relaxed">
+            Hukum Gravitasi yang sesungguhnya. Gravitasi bukanlah gaya tarikan Newton, melainkan <b>kelengkungan geometri ruang-waktu</b> akibat adanya massa dan energi. Massa memberi tahu ruang-waktu bagaimana melengkung; ruang-waktu memberi tahu massa bagaimana bergerak. Teori ini secara matematis memprediksi adanya Lubang Hitam dan meletakkan dasar bagi teori Big Bang.
+          </p>
+          <div class="math-scroll flex flex-col gap-4 text-xl md:text-2xl text-white" id="einstein_field"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="kuantum" class="py-24 bg-slate-950 border-y border-slate-800 border-b border-sky-900/40">
+      <div class="max-w-6xl mx-auto px-6 overflow-hidden">
+        <h2 class="section-title text-4xl md:text-5xl font-bold mb-6 text-center transform translateZ(0)">4. Alam Kuantum & Kosmologi</h2>
+        <p class="text-center text-gray-400 mb-12 max-w-4xl mx-auto text-md leading-relaxed transform translateZ(0)">
+          Mekanika Kuantum bukanlah tentang peluang semata; ia adalah bahasa pemrograman dari partikel dasar, sebuah realitas mikroskopis yang didominasi oleh probabilitas dan superposisi. Sementara Kosmologi, menggunakan gabungan relativitas dan kuantum, mencoba menjelaskan perluasan dan takdir alam semesta kita.
+        </p>
+        
+        <div class="space-y-12 mb-16 max-w-4xl mx-auto transform translateZ(0)">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-3">Pilar Fundamental Mekanika Kuantum</h3>
+            <p class="text-gray-400 text-sm leading-relaxed space-y-3">
+              <span class="block"><b>Dualitas Gelombang-Partikel:</b> Semua benda di alam semesta (elektron, molekul, bahkan kita) memiliki sifat ganda. Terkadang mereka berperilaku sebagai partikel (titik materi), terkadang sebagai gelombang (sebaran probabilitas).</span>
+              <span class="block"><b>Superposisi Kuantum:</b> Sebuah partikel kuantum dapat berada dalam banyak keadaan secara bersamaan—misalnya, di lokasi A dan B pada waktu yang sama—sampai ia diukur atau diobservasi. Keadaan ini direpresentasikan oleh Fungsi Gelombang (ψ).</span>
+              <span class="block"><b>Prinsip Ketidakpastian Heisenberg:</b> Merupakan batasan fundamental alam semesta: Kita tidak mungkin mengetahui secara pasti posisi (Δx) dan momentum (Δp) suatu partikel secara bersamaan. Semakin pasti posisinya, semakin tidak pasti pergerakannya.</span>
+              <span class="block"><b>Keterkaitan Kuantum (Entanglement):</b> Einstein menyebutnya "Spooky action at a distance". Dua partikel dapat saling terikat sehingga keadaan partikel A secara instan menentukan keadaan partikel B, meskipun keduanya berjarak miliaran tahun cahaya.</span>
+              <span class="block"><b>Dekoherensi Kuantum:</b> Mengapa kita tidak melihat benda besar berperilaku kuantum? Jawabannya adalah <b>Dekoherensi</b>. Sistem kuantum sangat rapuh. Interaksi acak dengan lingkungannya (misalnya dengan foton) secara instan menghancurkan status superposisi.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6 mb-8 transform translateZ(0)">
+          <article class="formula-box shadow-emerald-500/20 border-emerald-500/30">
+            <h4 class="text-emerald-400 font-bold mb-2">Persamaan Schrödinger (Dinamika Kuantum)</h4>
+            <p class="text-xs text-slate-500 mb-2">Evolusi status fungsi gelombang kuantum (ψ) terhadap waktu. Hukum utama bagi alam semesta.</p>
+            <div class="math-scroll text-white text-xl md:text-2xl" id="sch"></div>
+          </article>
+          <article class="formula-box">
+            <h4 class="text-sky-400 font-bold mb-2">Ketidakpastian Heisenberg</h4>
+            <div class="math-scroll" id="heis"></div>
+          </article>
+        </div>
+
+        <div class="mb-16 transform translateZ(0)">
+          <h3 class="text-3xl font-bold text-center text-rose-300 mb-6 glow-text">Pilar Friedmann: Ekspansi & Takdir Alam Semesta</h3>
+          <p class="text-center text-gray-400 mb-10 max-w-4xl mx-auto text-sm leading-relaxed">
+            Kosmologi dibangun di atas Relativitas Umum. Pada tahun 1920-an, Alexander Friedmann menulis persamaan diferensial untuk menjelaskan alam semesta sebagai cairan dinamis. Persamaannya membuktikan bahwa alam semesta tidak statis—ia bisa <b>mengembang</b> atau <b>mengempis</b>. Hal ini menjadi dasar bagi teori Big Bang.
+          </p>
+          <article class="formula-box max-w-4xl mx-auto shadow-rose-500/20 transform translateZ(0)">
+            <h4 class="text-rose-400 font-bold text-2xl mb-4 text-center">Persamaan Friedmann</h4>
+            <p class="text-sm text-gray-500 mb-6 text-center leading-relaxed">
+              Menjelaskan hubungan antara laju ekspansi kosmos (H), kelengkungan geometri alam semesta (k), massa energi (ρ), dan konstanta kosmologi (Λ).
+            </p>
+            <div class="math-scroll bg-black/50 p-4 rounded-xl border border-slate-700">
+              <div id="friedmann" class="text-xl md:text-2xl text-white text-center"></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="bg-gradient-to-br from-slate-900 to-black rounded-3xl p-6 md:p-10 border border-sky-900/50 shadow-2xl relative overflow-hidden mt-12 transform translateZ(0)">
+          <h3 class="text-3xl font-bold text-sky-300 mb-4 relative z-10 glow-text">Lagrangian Model Standar (Rumus Segala Hal)</h3>
+          <p class="text-gray-400 text-sm mb-6 relative z-10 md:w-3/4">
+            Ini adalah pencapaian intelektual terbesar umat manusia sejauh ini. Persamaan tunggal ini merangkum semua materi, antimateri, interaksi elektromagnetik, serta gaya nuklir lemah dan kuat. Ia adalah "Resep" tunggal dari segalanya (kecuali gravitasi).
+          </p>
+          <div class="math-scroll bg-black/50 p-4 md:p-6 rounded-xl border border-slate-700 relative z-10">
+            <div id="standard_model" class="text-xl md:text-2xl text-white text-center"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tokoh" class="py-24 bg-slate-900 border-t border-slate-800">
+      <div class="max-w-6xl mx-auto px-6 overflow-hidden relative">
+        <h2 class="section-title text-4xl font-bold mb-12 text-center glow-text transform translateZ(0)">5. Pantheon Fisikawan Legendaris</h2>
+        <p class="text-center text-gray-500 mb-12 max-w-4xl mx-auto text-xs leading-relaxed transform translateZ(0)">
+          Fisika bukanlah pencapaian satu orang atau satu era, melainkan estafet akal budi melintasi berabad-abad. Dari Galileo yang merintis eksperimen nyata, hingga Raihan yang menyusun kode ensiklopedia ini.
+        </p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 transform translateZ(0)">
+          <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition duration-300 transform translateZ(0)">
+            <div class="w-12 h-12 bg-sky-900/30 text-sky-400 rounded-lg flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-apple-whole"></i></div>
+            <h3 class="font-bold text-white text-lg">Isaac Newton</h3>
+            <p class="text-gray-400 text-xs mt-2">Bapak gerak dan kalkulus. Menghilangkan mistisisme gerak alam semesta lewat Tiga Hukum Gerak dan Gravitasi Universal.</p>
+          </div>
+          <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition duration-300 transform translateZ(0)">
+            <div class="w-12 h-12 bg-sky-900/30 text-sky-400 rounded-lg flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-bolt"></i></div>
+            <h3 class="font-bold text-white text-lg">Maxwell</h3>
+            <p class="text-gray-400 text-xs mt-2">Menyatukan listrik, magnet, dan cahaya sebagai gelombang elektromagnetik. Tanpanya, tidak ada telekomunikasi modern.</p>
+          </div>
+          <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition duration-300 transform translateZ(0)">
+            <div class="w-12 h-12 bg-sky-900/30 text-sky-400 rounded-lg flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-space-awesome"></i></div>
+            <h3 class="font-bold text-white text-lg">Albert Einstein</h3>
+            <p class="text-gray-400 text-xs mt-2">Menghancurkan konsep ruang dan waktu absolut melalu Relativitas Khusus dan Umum. Bapak gravitasi modern.</p>
+          </div>
+          <div class="bg-slate-950 p-6 rounded-2xl border border-rose-500/30 hover:border-rose-500/50 transition duration-300 transform translateZ(0)">
+            <div class="w-12 h-12 bg-rose-900/30 text-rose-400 rounded-lg flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-hourglass-start"></i></div>
+            <h3 class="font-bold text-white text-lg">Marie Curie</h3>
+            <p class="text-gray-400 text-xs mt-2">Pionir radioaktivitas, penemu Polonium dan Radium. Satu-satunya pemenang dua Nobel dalam dua sains berbeda (Fisika & Kimia).</p>
+          </div>
+          <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition duration-300 transform translateZ(0)">
+            <div class="w-12 h-12 bg-sky-900/30 text-sky-400 rounded-lg flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-dice"></i></div>
+            <h3 class="font-bold text-white text-lg">Heisenberg</h3>
+            <p class="text-gray-400 text-xs mt-2">Pencipta prinsip ketidakpastian fundamental. Menunjukkan alam semesta di level dasar sepenuhnya bersifat probabilistik.</p>
+          </div>
+          <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition duration-300 transform translateZ(0)">
+            <div class="w-12 h-12 bg-sky-900/30 text-sky-400 rounded-lg flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-atom"></i></div>
+            <h3 class="font-bold text-white text-lg">Richard Feynman</h3>
+            <p class="text-gray-400 text-xs mt-2">Pencipta Elektrodinamika Kuantum dan Diagram Feynman. Jenius eksentrik yang mampu menjelaskan hal tersulit dengan diagram sederhana.</p>
+          </div>
+          <div class="bg-slate-950 p-6 rounded-2xl border border-emerald-500/30 hover:border-emerald-500/50 transition duration-300 transform translateZ(0)">
+            <div class="w-12 h-12 bg-emerald-900/30 text-emerald-400 rounded-lg flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-circle-nodes"></i></div>
+            <h3 class="font-bold text-white text-lg">Dirac</h3>
+            <p class="text-gray-400 text-xs mt-2">Hanya lewat coretan matematika persamaan kuantum relativistik, ia meramalkan adanya Antimateri sebelum dibuktikan secara nyata.</p>
+          </div>
+          <div class="bg-slate-950 p-6 rounded-2xl border border-sky-500/50 bg-sky-950 transition duration-300 relative overflow-hidden transform translateZ(0)">
+            <div class="absolute right-0 top-0 w-16 h-16 bg-sky-500/20 blur-xl"></div>
+            <div class="w-12 h-12 bg-sky-500/20 text-sky-400 rounded-lg flex items-center justify-center mb-4 text-xl"><i class="fa-solid fa-crown"></i></div>
+            <h3 class="font-bold text-sky-300 text-lg">Raihan</h3>
+            <p class="text-gray-400 text-xs mt-2">Arsitek Utama Ensiklopedia ini. Menyatukan miliaran tahun evolusi pengetahuan kosmos ke dalam satu mahakarya kode yang dioptimasi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black pt-20 pb-12 border-t border-sky-900/40 text-center px-6 relative overflow-hidden">
+    <div class="max-w-3xl mx-auto transform translateZ(0)">
+      <h2 class="text-3xl font-black text-sky-400 mb-6 tracking-[0.2em] uppercase glow-text">Universal Realm</h2>
+      <p class="text-gray-400 mb-8 italic text-lg leading-relaxed font-serif">
+        "Matematika adalah alfabet yang digunakan Tuhan untuk menuliskan alam semesta."<br>
+        <span class="text-sm text-gray-500 not-italic block mt-2">— Galileo Galilei</span>
+      </p>
+      
+      <div class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-b from-slate-900 to-black border border-sky-500/30 shadow-[0_0_20px_rgba(56,189,248,0.15)] hover:shadow-[0_0_30px_rgba(56,189,248,0.3)] transition-all">
+        <span class="text-gray-400 text-sm font-medium">Engineered & Curated by</span>
+        <span class="text-sky-400 font-black text-2xl tracking-widest uppercase drop-shadow-[0_0_10px_rgba(56,189,248,0.8)]">Raihan</span>
+      </div>
+      
+      <p class="text-slate-600 text-xs mt-10">© 2026 The Universe Project. All Physical Laws Preserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof katex !== 'undefined') {
+        const opt = { displayMode: true, throwOnError: false, strict: false, output: 'html' };
+
+        katex.render("F = G \\frac{m_1 m_2}{r^2}", document.getElementById("newton_grav"), opt);
+        katex.render("\\mathbf{F} = q(\\mathbf{E} + \\mathbf{v} \\times \\mathbf{B})", document.getElementById("lorentz"), opt);
+        katex.render("\\begin{aligned} \\nabla \\cdot \\mathbf{E} &= \\frac{\\rho}{\\varepsilon_0} \\\\ \\nabla \\cdot \\mathbf{B} &= 0 \\\\ \\nabla \\times \\mathbf{E} &= -\\frac{\\partial \\mathbf{B}}{\\partial t} \\\\ \\nabla \\times \\mathbf{B} &= \\mu_0\\mathbf{J} + \\mu_0\\varepsilon_0\\frac{\\partial \\mathbf{E}}{\\partial t} \\end{aligned}", document.getElementById("maxwell"), opt);
+
+        katex.render("S = k_B \\ln W", document.getElementById("boltzmann"), opt);
+        katex.render("T_H = \\frac{\\hbar c^3}{8 \\pi G M k_B}", document.getElementById("hawking"), opt);
+
+        katex.render("E = mc^2", document.getElementById("emc2"), { displayMode: true, throwOnError: false });
+        katex.render("\\Delta t' = \\frac{\\Delta t}{\\sqrt{1 - \\frac{v^2}{c^2}}}", document.getElementById("time_dilation"), opt);
+        katex.render("G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = \\frac{8\\pi G}{c^4} T_{\\mu\\nu}", document.getElementById("einstein_field"), opt);
+
+        katex.render("i\\hbar \\frac{\\partial}{\\partial t} \\Psi = \\hat{H} \\Psi", document.getElementById("sch"), opt);
+        katex.render("\\Delta x \\Delta p \\geq \\frac{\\hbar}{2}", document.getElementById("heis"), opt);
+        
+        katex.render("\\left( \\frac{\\dot{a}}{a} \\right)^2 = \\frac{8\\pi G}{3} \\rho - \\frac{kc^2}{a^2} + \\frac{\\Lambda c^2}{3}", document.getElementById("friedmann"), opt);
+        
+        katex.render("\\mathcal{L} = -\\frac{1}{4}F_{\\mu\\nu}F^{\\mu\\nu} + i\\bar{\\psi}\\slashed{D}\\psi + |D_\\mu \\phi|^2 - V(\\phi) + y\\bar{\\psi}\\phi\\psi + h.c.", document.getElementById("standard_model"), opt);
+      }
+    });
+  </script>
+</body>
+</html>

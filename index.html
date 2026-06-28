@@ -922,10 +922,10 @@
 </a>
 
 <script>
-    // ===== INI YANG HARUS KAMU GANTI =====
+    // ===== KONFIGURASI SUPABASE =====
     const SUPABASE_URL = "https://dyibdrpvqrsmibwhknpu.supabase.co";
     const SUPABASE_KEY = "sb_publishable_RkKi2xUQFJL07tRoZ-BxJQ_VgyEqrKV";
-    // =======================================
+    // =================================
 
     const ADMIN_PASSWORD = "rapzadmin123";
     const ITEMS_PER_PAGE = 8;
@@ -940,6 +940,7 @@
     let currentFilter = 'all';
     let currentSearch = '';
 
+    // ===== AMBIL DATA DARI SUPABASE =====
     async function ambilDB() {
         const { data, error } = await supabase
             .from('akun')
@@ -952,14 +953,7 @@
         return data || [];
     }
 
-    async function simpanDB(dataBaru) {
-        // Hapus semua data lama
-        await supabase.from('akun').delete().neq('id', 0);
-        if (dataBaru.length > 0) {
-            await supabase.from('akun').insert(dataBaru);
-        }
-    }
-
+    // ===== RENDER KATALOG =====
     async function renderKatalog() {
         const data = await ambilDB();
         let filtered = data;
@@ -1023,6 +1017,7 @@
 
     function gantiPage(p) { currentPage = p; renderKatalog(); }
 
+    // ===== RENDER ADMIN LIST =====
     async function renderAdminList() {
         const data = await ambilDB();
         const el = document.getElementById('admin-list-items');
@@ -1041,6 +1036,7 @@
             `).join('');
     }
 
+    // ===== HAPUS AKUN =====
     async function hapusAkun(id) {
         if (!confirm('Hapus akun ini?')) return;
         const { error } = await supabase.from('akun').delete().eq('id', id);
@@ -1052,6 +1048,7 @@
         renderKatalog();
     }
 
+    // ===== SIMPAN AKUN (UPLOAD GAMBAR + INSERT SUPABASE) =====
     async function simpanAkun(e) {
         e.preventDefault();
 
@@ -1100,6 +1097,7 @@
         }
     }
 
+    // ===== FUNGSI NAVIGASI & FILTER =====
     function cariAkun() {
         currentSearch = document.getElementById('mesin-pencari').value;
         currentPage = 1;
@@ -1149,13 +1147,14 @@
         showToast('Sesi admin diakhiri.');
     }
 
+    // ===== TRIGGER KLIK 5X =====
     function hitungKlik() {
         klikRahasia++;
         clearTimeout(timerKlik);
         timerKlik = setTimeout(() => { klikRahasia = 0; }, 2000);
         if (klikRahasia >= 5) {
             klikRahasia = 0;
-            bukaModalAdmin();
+            document.getElementById('modal-admin').classList.add('show');
         }
     }
 
@@ -1193,7 +1192,15 @@
         setTimeout(() => t.classList.remove('show'), 2500);
     }
 
-    window.onload = () => renderKatalog();
+    // ===== INIT =====
+    window.onload = () => {
+        renderKatalog();
+        // Kalau ada parameter ?admin=1 di URL, langsung buka admin
+        if (window.location.search.includes('admin=1')) {
+            adminMode = true;
+            bukaAdmin();
+        }
+    };
 </script>
 </body>
 </html>
